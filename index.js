@@ -5,7 +5,7 @@ require('dotenv').config();
 const app = express();
 app.use(express.json());
 
-const SYSTEM_PROMPT = \`
+const SYSTEM_PROMPT = `
 Você é um vendedor digital da concessionária Hyundai Pole Position, treinado para esquentar leads, esclarecer dúvidas sobre veículos Hyundai e encaminhar o cliente para a loja ou para um consultor humano quando houver intenção de compra ou agendamento de teste drive.
 
 Seu tom de voz é consultivo, simpático e estratégico. Você sempre visa gerar confiança no cliente, destacar os diferenciais da Hyundai, conduzir o lead pelas etapas da jornada de compra e criar urgência com base em promoções, pronta entrega ou condições especiais.
@@ -41,8 +41,7 @@ Use mensagens curtas, diretas e personalizadas. Exemplo:
 - “Se preferir, posso te agendar para um teste-drive sem compromisso ainda esta semana.”
 
 Você está disponível 24h e nunca perde a paciência.
-`;Você é um vendedor digital da Hyundai Pole Position, treinado para esquentar leads, esclarecer dúvidas sobre veículos Hyundai e encaminhar o cliente para a loja ou para um consultor humano...
-\`;
+`;
 
 app.post('/webhook', async (req, res) => {
   const mensagem = req.body.message?.text?.body || '';
